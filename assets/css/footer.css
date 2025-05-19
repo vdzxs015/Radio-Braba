@@ -1,0 +1,271 @@
+/* Estilo para o novo footer simplificado */
+
+/* Variáveis */
+:root {
+    --primary-color: #B80D0D;
+    --dark-bg: #121212;
+    --darker-bg: #0e1015;
+    --darker-bg-2: #080808;
+    --light-text: #ffffff;
+    --gray-text: #b0b0b0;
+    --border-color: #222;
+    --transition-speed: 0.3s;
+}
+
+/* Reset e estilos globais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    font-family: 'Maven Pro', sans-serif;
+    color: var(--light-text);
+    background-color: var(--dark-bg);
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: var(--light-text);
+    transition: color var(--transition-speed) ease;
+}
+
+a:hover {
+    color: var(--primary-color);
+}
+
+ul {
+    list-style: none;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.main-content {
+    min-height: calc(100vh - 300px); /* Garante que o conteúdo principal tenha altura suficiente */
+}
+
+/* Estilos do Footer */
+.site-footer {
+    background-color: var(--dark-bg);
+    width: 100%;
+    color: var(--light-text);
+}
+
+/* Área Principal com Links */
+.footer-main {
+    padding: 50px 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.footer-main .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 30px;
+}
+
+/* Logo */
+.footer-logo {
+    flex: 0 0 220px;
+}
+
+.footer-logo img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Navegação */
+.footer-navigation {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.footer-nav-column ul li {
+    margin-bottom: 15px;
+}
+
+.footer-nav-column ul li a {
+    color: var(--light-text);
+    font-size: 16px;
+    font-weight: 400;
+    position: relative;
+    transition: all var(--transition-speed) ease;
+}
+
+.footer-nav-column ul li a:hover {
+    color: var(--primary-color);
+}
+
+.footer-nav-column ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-color);
+    transition: width var(--transition-speed) ease;
+}
+
+.footer-nav-column ul li a:hover::after {
+    width: 100%;
+}
+
+/* Área Social */
+.footer-social-area {
+    flex: 0 0 300px;
+    text-align: right;
+}
+
+.footer-slogan {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+}
+
+.social-icons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: all var(--transition-speed) ease;
+}
+
+.social-icons a:hover {
+    background-color: var(--primary-color);
+    transform: translateY(-3px);
+}
+
+.social-icons i {
+    font-size: 18px;
+}
+
+/* Estações */
+.footer-stations {
+    background-color: var(--darker-bg);
+    padding: 15px 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.stations-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.station-item {
+    color: var(--gray-text);
+    font-size: 14px;
+    transition: color var(--transition-speed) ease;
+}
+
+.station-item:hover {
+    color: var(--primary-color);
+}
+
+/* Copyright */
+.footer-copyright {
+    background-color: var(--darker-bg-2);
+    padding: 15px 0;
+    font-size: 14px;
+    color: var(--gray-text);
+}
+
+.footer-copyright .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.developer a {
+    color: var(--primary-color);
+}
+
+.developer a:hover {
+    text-decoration: underline;
+}
+
+/* Media Queries */
+@media (max-width: 1024px) {
+    .footer-main .container {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .footer-logo {
+        margin: 0 auto 30px;
+    }
+    
+    .footer-navigation {
+        flex-wrap: wrap;
+    }
+    
+    .footer-nav-column {
+        flex: 0 0 50%;
+        margin-bottom: 30px;
+    }
+    
+    .footer-social-area {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .social-icons {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .footer-navigation {
+        flex-direction: column;
+    }
+    
+    .footer-nav-column {
+        flex: 0 0 100%;
+    }
+    
+    .stations-list {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+    
+    .footer-copyright .container {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .social-icons {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .footer-main {
+        padding: 30px 0;
+    }
+}
